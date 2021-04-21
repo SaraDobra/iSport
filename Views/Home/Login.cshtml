@@ -1,0 +1,16 @@
+@using iSportProjekti.Models
+@model Login 
+
+<form asp-action="Login" asp-controller="Home" method="post">
+    <div class="form-group">
+        <span asp-validation-for="EmailAttempt"></span>
+        <label asp-for="EmailAttempt"></label>
+        <input asp-for="EmailAttempt">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="PasswordAttempt"></span>
+        <label asp-for="PasswordAttempt"></label>
+        <input asp-for="PasswordAttempt">
+    </div>
+    <input class="btn btn-primary" type="submit" value="Login">
+</form>

@@ -1,0 +1,42 @@
+@using iSportProjekti.Models
+@model List<Event>
+
+<h1>Welcome</h1>
+@* <h3>Welcome, @Model.DojoActivity.Name</h3> *@
+
+
+<a asp-controller="Home" asp-action="Logout"> Log out </a>
+<ul>
+    <li><a asp-controller="Event" asp-action="Index">Home</a></li>
+    <li><a asp-controller="Event" asp-action="New">New</a></li>
+    <li><a asp-controller="Event" asp-action="Search">Search</a></li>
+    <li><a asp-controller="Event" asp-action="Users">Account</a></li>
+</ul>
+
+<p>Here are your future events: </p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Event Name</th>
+            <th>Location Name</th>
+            @* <th>Attendees</th> *@
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        @foreach(var e in Model){
+            <tr>
+                <td><a asp-controller="Event"
+                        asp-action="Show"
+                        asp-route-eventId="@e.EventId">@e.Events</a></td>
+                
+                <td>@e.Location</td>
+                @* <td>@e.Participants</td> *@
+                <td>@e.Date</td>
+            </tr>
+        }
+    </tbody> 
+</table>
+
+<button><a asp-controller="Event" asp-action="New"> New Event</a></button>

@@ -1,0 +1,24 @@
+@using iSportProjekti.Models
+@model Event
+
+<ul>
+    <li><a asp-controller="Event" asp-action="Index">Home</a></li>
+    <li><a asp-controller="Event" asp-action="New">New</a></li>
+    <li><a asp-controller="Event" asp-action="Search">Search</a></li>
+    <li><a asp-controller="Event" asp-action="Users">Account</a></li>
+</ul>
+
+<h2>Event Date </h2>
+
+<h3> Title: @Model.Events </h3>
+
+<h3>Date and Time: @Model.Date</h3>
+<hr>
+<h3>User: @Model.Planner.Name </h3>
+@* 
+<h4>Description: @Model.Description </h4>
+
+@foreach (var p in Model.Responses)
+{
+    <p>Participants: @p.Participants.Name </p>
+} *@

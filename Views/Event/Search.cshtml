@@ -1,0 +1,78 @@
+@using iSportProjekti.Models
+@model List<Event>
+
+<a asp-controller="Home" asp-action="Logout"> Log out </a>
+<ul>
+    <li><a asp-controller="Event" asp-action="Index">Home</a></li>
+    <li><a asp-controller="Event" asp-action="New">New</a></li>
+    <li><a asp-controller="Event" asp-action="Search">Search</a></li>
+    <li><a asp-controller="Event" asp-action="Users">Account</a></li>
+</ul>
+
+<h3>Search by: </h3>
+
+<form method="get" asp-controller="Event" asp-action="Search">
+    <p>
+        <input type="search" placeholder="Search.." value="@ViewData["GetEvents"]" name="s" style="width: 500px;" />
+        <input type="submit" value="Search" class="btn btn-primary" />
+        <a asp-action="Search">Get all</a>
+    </p>
+</form>
+
+
+<p>Here are your future events: </p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Event Name</th>
+            <th>Location Name</th>
+            @* <th>Member</th> *@
+            <th>Date</th>
+            @* <th>Creator</th> *@
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        @foreach(var e in Model){
+            <tr>
+                <td><a asp-controller="Event"
+                        asp-action="Show"
+                        asp-route-eventId="@e.EventId">@e.Events</a></td>
+                
+                <td>@e.Location</td>
+                <td>@e.Date</td>
+                <td>@e.Planner</td>
+            
+                
+                @* <td>@dojo.Responses.Count()</td> *@
+
+                @{
+                    if(e.UserId == ViewBag.UserId)
+                    {
+                        <td><a asp-controller="Event" 
+                            asp-action="Remove"
+                            asp-route-dojoId="@e.EventId">DELETE</a></td>
+
+                    }
+                    @* else if(e.Events.Any(r => r.UserId == ViewBag.UserId))
+                    {
+                        <td><a asp-controller="Event" 
+                            asp-action="Remove" 
+                            asp-route-dojoId="@e.EventId" 
+                            asp-route-status="remove">Leave</a></td>
+                    } *@
+                    else
+                    {
+                        <td><a asp-controller="Event" 
+                            asp-action="Add" 
+                            asp-route-dojoId="@e.EventId" 
+                            asp-route-status="add">Join</a></td>
+                    }
+                }
+        </tr>
+        }
+    </tbody> 
+</table>
+
+<button><a asp-controller="Event" asp-action="New"> New Activity</a></button>

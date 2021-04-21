@@ -1,0 +1,17 @@
+@using iSportProjekti.Models
+@model Event
+
+<a asp-controller="Home" asp-action="Logout"> Log out </a>
+<ul>
+    <li><a asp-controller="Event" asp-action="Index">Home</a></li>
+    <li><a asp-controller="Event" asp-action="New">New</a></li>
+    <li><a asp-controller="Event" asp-action="Search">Search</a></li>
+    <li><a asp-controller="Event" asp-action="Users">Account</a></li>
+</ul>
+
+<h3>Hello</h3>
+@* <h3>@Model.Planner.Name </h3> *@
+@* <h3>@Model.Planner.Email </h3> *@
+@* <h3>Name: @Model.Name </h3>
+<h3>Email: @Model.Email </h3>
+<h3>Password: @Model.Password </h3> *@

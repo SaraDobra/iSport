@@ -1,0 +1,36 @@
+@using iSportProjekti.Models
+@model Event
+
+<h3><a asp-controller="Event" asp-action="Index"> Home </a> 
+    <a asp-controller="Home" asp-action="Logout">Logout </a></h3>
+
+<ul>
+    <li><a asp-controller="Event" asp-action="Index">Home</a></li>
+    <li><a asp-controller="Event" asp-action="New">New</a></li>
+    <li><a asp-controller="Event" asp-action="Search">Search</a></li>
+    <li><a asp-controller="Event" asp-action="Users">Account</a></li>
+</ul>
+<h2>Events</h2>
+<hr>
+<h4>Create an Event</h4>
+
+<form asp-controller="Event" asp-action="Create" method="post">
+    <div class="form-group">
+        <span asp-validation-for="Events"></span>
+        <label asp-for="Events"></label>
+        <input asp-for="Events">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="Location"></span>
+        <label asp-for="Location"></label>
+        <input asp-for="Location">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="Date"></span>
+        <label asp-for="Date"></label>
+        <input asp-for="Date">
+    </div>
+    
+
+    <input type="submit" value="Create">
+</form>
